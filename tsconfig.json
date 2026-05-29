@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ES2022",
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "paths": {
+            "@/*": ["./src/*"],
+            "@interfaces/*": ["./src/interfaces/*"],
+            "@repositories/*": ["./src/repositories/*"],
+            "@services/*": ["./src/services/*"],
+            "@controllers/*": ["./src/controllers/*"],
+            "@middlewares/*": ["./src/middlewares/*"],
+            "@utils/*": ["./src/utils/*"],
+            "@config/*": ["./src/config/*"],
+            "@constants/*": ["./src/constants/*"],
+            "@errors/*": ["./src/errors/*"],
+            "@validations/*": ["./src/validations/*"],
+        },
+        "moduleResolution": "bundler"
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"]
+}
