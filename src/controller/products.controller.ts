@@ -18,7 +18,7 @@ export class ProductsController extends Controller {
         }
     }
 
-    public async show(req: Request, res: Response): Promise<Response> {
+    public async getById(req: Request, res: Response): Promise<Response> {
         try {
             return createResponseSuccess(res, HTTP_STATUS_CODES.OK, HTTP_STATUS_CODES_MESSAGES.OK, { message: "Product detail", id: req.params.id });
         } catch (error) {
@@ -34,7 +34,7 @@ export class ProductsController extends Controller {
         }
     }
 
-    public async update(req: Request, res: Response): Promise<Response> {
+    public async updateById(req: Request, res: Response): Promise<Response> {
         try {
             return createResponseSuccess(res, HTTP_STATUS_CODES.OK, HTTP_STATUS_CODES_MESSAGES.OK, { message: "Product updated", id: req.params.id });
         } catch (error) {
@@ -42,7 +42,7 @@ export class ProductsController extends Controller {
         }
     }
 
-    public async remove(req: Request, res: Response): Promise<Response> {
+    public async removeById(req: Request, res: Response): Promise<Response> {
         try {
             return createResponseSuccess(res, HTTP_STATUS_CODES.OK, HTTP_STATUS_CODES_MESSAGES.OK, { message: "Product deleted", id: req.params.id });
         } catch (error) {
@@ -50,7 +50,7 @@ export class ProductsController extends Controller {
         }
     }
 
-    public async patch(req: Request, res: Response): Promise<Response> {
+    public async patchById(req: Request, res: Response): Promise<Response> {
         try {
             return createResponseSuccess(res, HTTP_STATUS_CODES.OK, HTTP_STATUS_CODES_MESSAGES.OK, { message: "Product patched", id: req.params.id });
         } catch (error) {

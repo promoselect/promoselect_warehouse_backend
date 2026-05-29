@@ -1,11 +1,12 @@
-import express, { NextFunction, Request, Response } from "express";
-import { Controller, IController } from "@/interfaces/controller";
+import express from "express";
+import { Controller } from "@/interfaces/controller";
 
-export abstract class Route {
+export abstract class Route<T extends Controller = Controller> {
 
     public readonly router: express.Router;
-    protected controller!: Controller;
+    protected controller!: T;
     protected readonly path: string;
+    
 
     constructor(path: string) {
         this.path = path;
@@ -14,10 +15,4 @@ export abstract class Route {
     }
 
     protected abstract configRoutes(): void;
-
-    protected bind(method: keyof IController) {
-        return (req: Request, res: Response, next: NextFunction): void => {
-            Promise.resolve(this.controller[method](req, res)).catch(next);
-        };
-    }
 }

@@ -2,7 +2,7 @@ import { ProductsController } from "@/controller/products.controller";
 import { Route } from "@/interfaces/routes";
 import { ProductsService } from "@/services/products.service";
 
-export default class ProductsRoute extends Route {
+export default class ProductsRoute extends Route<ProductsController> {
 
     constructor(path: string) {
         super(path);
@@ -18,23 +18,23 @@ export default class ProductsRoute extends Route {
     }
 
     protected registerGetRoutes(): void {
-        this.router.get(`${this.path}/list`, this.bind("list"));
-        this.router.get(`${this.path}/:id`, this.bind("show"));
+        this.router.get('/list', this.controller.list);
+        this.router.get('/:id', this.controller.getById);
     }
 
     protected registerPostRoutes(): void {
-        this.router.post(this.path, this.bind("create"));
+        this.router.post('/', this.controller.create);
     }
 
     protected registerPutRoutes(): void {
-        this.router.put(`${this.path}/:id`, this.bind("update"));
+        this.router.put('/:id', this.controller.updateById);
     }
 
     protected registerDeleteRoutes(): void {
-        this.router.delete(`${this.path}/:id`, this.bind("remove"));
+        this.router.delete('/:id', this.controller.removeById);
     }
 
     protected registerPatchRoutes(): void {
-        this.router.patch(`${this.path}/:id`, this.bind("patch"));
+        this.router.patch('/:id', this.controller.patchById);
     }
 }
