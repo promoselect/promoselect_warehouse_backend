@@ -1,2 +1,6 @@
 node_modules
 package-lock.json
+
+# Ignore environment variable files
+.env
+.dev.env

@@ -1,3 +1,4 @@
+import { HTTP_STATUS_CODES } from "@/lib/constants/http.constants";
 import { Response } from "express";
 
 interface IResponse<T> {
@@ -12,7 +13,7 @@ interface IResponseError {
     details: string;
 }
 
-function createResponseSuccess<T>(response: Response, statusCode: number, message: string, data: T): Response<IResponse<T>> {
+function createResponseSuccess<T>(response: Response, statusCode: number = HTTP_STATUS_CODES.OK, message: string, data: T): Response<IResponse<T>> {
     return response.status(statusCode).json({
         statusCode,
         message,

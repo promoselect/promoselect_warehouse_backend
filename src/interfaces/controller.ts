@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import { Service } from "@/interfaces/services";
 
-export abstract class Controller {
+export abstract class Controller<T extends Service = Service> {
 
-    protected readonly service: Service;
+    protected readonly service: T;
 
-    constructor(service: Service) {
+    constructor(service: T) {
         this.service = service;
     }
 }

@@ -16,7 +16,7 @@
     "typeorm": "^1.0.0"
   },
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "docker:dev:up": "docker-compose -f docker-compose.dev.yaml up -d --build"
+    "dev": "tsx --watch src/server.ts",
+    "docker:dev:up": "docker compose --env-file .env -f docker-compose.dev.yaml up -d --build"
   }
 }

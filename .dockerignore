@@ -1,0 +1,11 @@
+# Ignorar archivos que se pueden instalar con npm
+node_modules
+package-lock.json
+
+
+# Ignorar archivos que no van a vivir en la aplicacion
+.gitignore
+docker-compose.dev.yaml
+README.md
+.vscode/
+

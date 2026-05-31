@@ -5,8 +5,7 @@ import { ProductsService } from "@/services/products.service";
 export default class ProductsRoute extends Route<ProductsController> {
 
     constructor(path: string) {
-        super(path);
-        this.controller = new ProductsController(new ProductsService());
+        super(path, new ProductsController(new ProductsService()));
     }
 
     protected configRoutes(): void {
@@ -18,23 +17,23 @@ export default class ProductsRoute extends Route<ProductsController> {
     }
 
     protected registerGetRoutes(): void {
-        this.router.get('/list', this.controller.list);
-        this.router.get('/:id', this.controller.getById);
+        this.router.get(`${this.path}/list`, this.controller.list);
+        this.router.get(`${this.path}/:id`, this.controller.getById);
     }
 
     protected registerPostRoutes(): void {
-        this.router.post('/', this.controller.create);
+        this.router.post(`${this.path}`, this.controller.create);
     }
 
     protected registerPutRoutes(): void {
-        this.router.put('/:id', this.controller.updateById);
+        this.router.put(`${this.path}/:id`, this.controller.updateById);
     }
 
     protected registerDeleteRoutes(): void {
-        this.router.delete('/:id', this.controller.removeById);
+        this.router.delete(`${this.path}/:id`   , this.controller.removeById);
     }
 
     protected registerPatchRoutes(): void {
-        this.router.patch('/:id', this.controller.patchById);
+        this.router.patch(`${this.path}/:id`, this.controller.patchById);
     }
 }
